@@ -1,4 +1,5 @@
 import pandas as pd
+import matplotlib.pyplot as plt
 import ast
 from sklearn.feature_extraction.text import CountVectorizer
 from sklearn.metrics.pairwise import cosine_similarity
@@ -50,3 +51,14 @@ def recommend(movie):
 recommend("The Matrix")
 recommend("Inception")
 recommend("Interstellar")
+
+genre_counts = movies['genres'].apply(len)
+
+plt.figure()
+plt.hist(genre_counts)
+
+plt.title("Distribution of Genres per Movie")
+plt.xlabel("Number of Genres")
+plt.ylabel("Number of Movies")
+
+plt.show()
